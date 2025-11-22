@@ -113,27 +113,22 @@ const Header = () => {
                     <div className="col-xl-6">
                         <nav className="header_menu">
                             <ul>
-                                {
-                                    menus?.map((menu, menuKey) => (
-                                        <li key={menuKey} className={menuKey == 0 ? "active" : ""}>
-                                            <Link to={menu.path}>{menu?.name}</Link>
-                                        </li>
-                                    ))
+                                {menus?.map((menu, menuKey) => (
+                                    <li key={menuKey} className={menuKey === 0 ? "active" : ""}>
+                                        <Link to={menu?.path}>{menu?.name}</Link>
+                                        {menu.child && (
+                                            <ul className="header_menu_dropdown">
+                                                {menu.child.map((childItem, childKey) => (
+                                                    <li key={`${menuKey}-${childKey}`}>
+                                                        <Link to={childItem.path}>{childItem.name}</Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </li>
+                                ))
                                 }
                             </ul>
-                            {/* <ul>
-                                <li>
-                                    <link to=""> Trang chủ</link>
-                                </li>
-                                <li>
-                                    <link to=""> Sản phẩm</link>
-                                    <ul>
-                                        <li>
-                                            Thịt
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul> */}
                         </nav>
                     </div>
                     <div className="col-xl-3">
@@ -153,7 +148,13 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-xl-3">trai</div>
+                    <div className="col-xl-9">phai</div>
 
+                </div>
+            </div>
         </>
     );
 };

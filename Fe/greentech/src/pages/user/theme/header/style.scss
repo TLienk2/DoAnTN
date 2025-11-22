@@ -71,32 +71,86 @@
 .header_menu {
     ul {
         list-style: none;
+        margin: 0;
+        padding: 0;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0 13px;
-
+        gap: 40px;
+        margin-top: 15px;
 
         li {
-            list-style: none;
-            cursor: pointer;
+            position: relative;
 
             a {
                 text-decoration: none;
-                font-size: 14px;
+                font-family: "Lato", sans-serif;
+                font-size: 16px;
+                font-weight: 500;
                 color: map.get($theme-colors, "bold-text");
-                text-transform: uppercase;
-                font-weight: bold;
-                letter-spacing: 2px;
                 transition: all 0.3s ease;
                 padding: 5px 0;
                 display: inline-block;
+                letter-spacing: 0; // bỏ giãn chữ
             }
         }
 
-        active a {
+        li:hover .header_menu_dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .active a {
             color: map.get($theme-colors, "main");
         }
+
+        .header_menu_dropdown {
+            background: #fff;
+            display: block;
+            position: absolute;
+            width: 220px;
+            z-index: 9;
+            padding: 8px 0;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            top: 100%;
+            left: 0;
+
+            li {
+                list-style: none;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    text-transform: none;
+                    color: #222;
+                    font-size: 15px;
+                    font-weight: 400;
+                    padding: 10px 16px;
+                    text-decoration: none;
+                    transition: all 0.2s ease;
+                }
+
+                &:hover {
+                    background-color: #f0f8f5;
+
+                    a {
+                        color: #2b7a0b; // Màu xanh lá dịu như trong ảnh
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            // Khi menu chính hover thì hiện dropdown
+            .header_menu>li:hover & {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
     }
 }
 
