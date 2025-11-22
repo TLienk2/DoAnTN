@@ -1,0 +1,263 @@
+@use 'sass:map';
+@import "../../../style/pages/all";
+
+.product-detail {
+    margin-top: 40px;
+    font-family: "Inter", sans-serif;
+
+    .product-main {
+        margin-bottom: 40px;
+        gap: 20px;
+
+        .image-box {
+            flex: 1;
+
+            img {
+                width: 100%;
+                height: auto;
+                /* giữ tỉ lệ ảnh */
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .info-box {
+            flex: 1;
+            /* info-box cùng tỉ lệ với ảnh */
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .name {
+                font-size: 28px;
+                font-weight: 700;
+                color: map.get($theme-colors, "main");
+                margin-bottom: 5px;
+            }
+
+            .brand {
+                font-size: 15px;
+                color: #444;
+                line-height: 1.4;
+            }
+
+            .rating {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 15px;
+                color: #333;
+
+                .star {
+                    color: #ffc107;
+                    font-size: 18px;
+                }
+
+                .review {
+                    color: #777;
+                    font-size: 14px;
+                }
+            }
+
+            .price {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 10px 0;
+
+                .current {
+                    font-size: 22px;
+                    color: map.get($theme-colors, "main");
+                    font-weight: 700;
+                }
+
+                .old {
+                    text-decoration: line-through;
+                    color: #aaa;
+                    font-size: 15px;
+                }
+            }
+
+            .quantity {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-top: 8px;
+
+                input {
+                    width: 80px;
+                    height: 40px;
+                    text-align: center;
+                    font-size: 16px;
+                    border: 1px solid #ccc;
+                    border-radius: 10px;
+                    outline: none;
+                    transition: border 0.2s ease;
+
+                    &:focus {
+                        border-color: map.get($theme-colors, "main");
+                    }
+                }
+
+                .price-note {
+                    font-size: 14px;
+                    color: #666;
+                }
+            }
+
+            .total {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 8px;
+                padding: 6px 10px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+
+                input {
+                    border: none;
+                    background: transparent;
+                    text-align: right;
+                    font-size: 16px;
+                    color: #333;
+                    font-weight: 500;
+                    width: 100%;
+                    outline: none;
+                }
+
+                span {
+                    font-size: 14px;
+                    color: #666;
+                }
+            }
+
+            .actions {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                .buy-now {
+                    flex: 1;
+                    background: linear-gradient(90deg, #2b7a0b, #34a853);
+                    color: #fff;
+                    border: none;
+                    padding: 8px 0;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    height: 40px;
+
+                    &:hover {
+                        background: linear-gradient(90deg, #34a853, #2b7a0b);
+                    }
+                }
+
+                .cart-btn {
+                    border: 1.8px solid #2b7a0b;
+                    background: #fff;
+                    border-radius: 8px;
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+
+                    svg {
+                        color: #2b7a0b;
+                    }
+
+                    &:hover {
+                        background: #e9f7ec;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .desc-section {
+        margin-bottom: 20px;
+
+        h4 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            color: map.get($theme-colors, "description");
+        }
+    }
+
+    .review-section {
+        margin-bottom: 40px;
+
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+
+            .review-card {
+                border: 1px solid #eee;
+                border-radius: 10px;
+                padding: 15px;
+                flex: 1 1 30%;
+                /* co giãn tối thiểu 30%, tối đa 1fr */
+                min-width: 250px;
+
+                .review-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .avatar {
+                        background: #eee;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 600;
+                    }
+
+                    .date {
+                        font-size: 12px;
+                        color: gray;
+                    }
+                }
+
+                .review-content {
+                    margin-top: 10px;
+
+                    p {
+                        color: map.get($theme-colors, "description");
+                    }
+
+                    .stars {
+                        color: #ffb800;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .section_title {
+        color: map.get($theme-colors, "main");
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .related-section {
+        h4 {
+            font-weight: 600;
+        }
+    }
+}

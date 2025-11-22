@@ -1,0 +1,81 @@
+$primary-green: #107c41; // Màu xanh lá đậm (giống Excel/hình ảnh)
+$bg-gray-disabled: #e2e8f0; // Màu nền xám khi disable
+$icon-gray-disabled: #a0aec0; // Màu icon khi disable
+$border-color: #dee2e6;
+$text-color: #4b5563;
+
+.custom-pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  font-size: 14px;
+  color: $text-color;
+
+  // Phần text: Trang [1] trên 35
+  .pagination-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .pagination-text {
+      font-weight: 400;
+    }
+
+    .pagination-current-page-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background-color: #fff;
+      border: 1px solid $border-color;
+      border-radius: 6px; // Bo góc vuông nhẹ như hình
+      font-weight: 600;
+      color: $text-color;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  // Phần nút bấm < >
+  .pagination-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .pagination-arrow-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      background-color: $primary-green;
+      color: #ffffff;
+
+      &:hover:not(:disabled) {
+        background-color: darken($primary-green, 5%);
+        transform: scale(1.05);
+      }
+
+      &:active:not(:disabled) {
+        transform: scale(0.95);
+      }
+
+      &:disabled {
+        background-color: $bg-gray-disabled;
+        color: #fff;
+        cursor: not-allowed;
+        opacity: 1;
+
+        svg {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+}

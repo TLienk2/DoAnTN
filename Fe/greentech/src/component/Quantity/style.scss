@@ -1,0 +1,51 @@
+@use "sass:map";
+@import "../../style/pages/all";
+
+.quantity_container {
+  color: map.get($theme-colors, "description");
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  .quantity {
+    display: flex;
+    align-items: center;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    input {
+      font-size: 20px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      width: auto;
+    }
+    .qty_btn {
+      background: map.get($theme-colors, "main");
+      border-radius: 6px;
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    input {
+      border: unset;
+      border-radius: 10px;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}

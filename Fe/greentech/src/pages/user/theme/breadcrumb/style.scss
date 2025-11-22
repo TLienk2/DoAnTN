@@ -1,0 +1,72 @@
+@use 'sass:map';
+@import "../../../../style/pages/all";
+
+// ...existing code...
+
+.breadcrumb {
+    width: 100%;
+    margin-bottom: 30px;
+
+    .carousel-container {
+        width: 100%;
+    }
+
+    .carousel-item-breadcrumb {
+        padding: 0;
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .slide-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+            animation: slideInRight 3s ease-in-out;
+        }
+    }
+
+    /* styling dots (navigation) */
+    .react-multi-carousel-dot-list {
+        bottom: 15px;
+    }
+
+    .react-multi-carousel-dot button {
+        border-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .react-multi-carousel-dot--active button {
+        background-color: #2b7a0b;
+        border-color: #2b7a0b;
+    }
+
+    .react-multi-carousel-list button {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #fff;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumb .slide-wrapper img {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb .slide-wrapper img {
+        max-height: 200px;
+    }
+}

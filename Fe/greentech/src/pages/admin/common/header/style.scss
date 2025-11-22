@@ -1,0 +1,120 @@
+@use "sass:map";
+@import "../../../../style/pages/all";
+
+.admin-header {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid map.get($theme-colors, "border-color");
+  position: relative;
+  margin-top: -10px;
+
+  .header-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    .admin-info-wrapper {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+      position: relative; // Quan trọng cho menu dropdown
+
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+
+    .admin-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-right: 15px;
+      line-height: 1.2;
+    }
+
+    .admin-role {
+      font-size: 16px;
+      color: map.get($theme-colors, "main");
+    }
+
+    .admin-email {
+      font-size: 14px;
+      color: map.get($theme-colors, "main");
+    }
+
+    .admin-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid map.get($theme-colors, "main"); // Viền xanh lá cây quanh avatar
+    }
+
+    .dropdown-caret {
+      margin-left: 5px;
+      color: #8c8c8c;
+      transition: transform 0.2s;
+
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// 2.2 Dropdown Menu
+.admin-dropdown-menu {
+  position: absolute;
+  top: 100%; /* Đặt dưới wrapper */
+  right: 0;
+  margin-top: 10px;
+  width: 200px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1050;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-size: 15px;
+  color: map.get($theme-colors, "normal-text");
+  cursor: pointer;
+  transition: background-color 0.2s;
+  gap: 10px;
+
+  &:hover {
+    background-color: #f5f5f5;
+    color: map.get($theme-colors, "main");
+  }
+}
+
+.dropdown-item.logout {
+  font-size: 15px;
+  &:hover {
+    color: map.get($theme-colors, "main");
+    background-color: #f5f5f5;
+  }
+}
+
+// 2.3 Thanh Ngang (Divider)
+.header-bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: map.get($theme-colors, "border-color");
+  display: none;
+}

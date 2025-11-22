@@ -1,90 +1,168 @@
-@use 'sass:map';
+@use "sass:map";
 @import "theme";
 @import "responsive";
+@import "@fontsource/be-vietnam-pro";
 
 html,
 body {
-    margin: 0;
+  margin: 0;
 }
 
 * {
-    font-family: "Lato", sans-serif;
-    padding: 0;
-    margin: 0;
+  font-family: "Lato", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
-    max-width: 1170px;
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    // background: map.get($theme-colors, "main"    ); 
-    margin: auto;
+  max-width: 1170px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  // background: map.get($theme-colors, "main"    );
+  margin: auto;
+  border-radius: 10px;
 }
 
+.section_title {
+  margin-bottom: 50px;
+  align-items: center;
+
+  h2 {
+    position: relative;
+  }
+
+  h2:after {
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    right: 0;
+    height: 4;
+    width: 80px;
+    color: map.get($theme-colors, "main");
+    content: "";
+    margin: 0 auto;
+  }
+}
+
+.button_submit {
+  background: linear-gradient(90deg, #186a38, #359f5d);
+  color: #fff;
+  border: none;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 14px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  &:hover {
+    background: linear-gradient(90deg, #34a853, #176b3a);
+  }
+}
 .row {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.col-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+.col-lg-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
 .col-lg-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.col-lg-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.col-lg-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
 }
 
 @include Responsive($MOBILE_DEVICE) {
-    .col-sm-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
+  .container {
+    max-width: 540px;
+  }
 
-    .col-sm-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 @include Responsive($TABLET_DEVICE) {
-    .col-md-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
+  .container {
+    max-width: 720px;
+  }
 
-    .col-md-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 @include Responsive($MEDIUM_DEVICE) {
-    .col-lg-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-        background: red;
-    }
+  .container {
+    max-width: 960px;
+  }
+
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    min-width: 0;
+  }
+
+  .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-xl-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 @include Responsive($DESKTOP) {
-    .col-xl-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
+  .col-xl-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
 
-    .col-xl-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
+  .col-xl-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }
 
 @include Responsive($SMALL_DEVICE) {
+  .container {
+    max-width: 350px;
+  }
 
-    .col-xs-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+  .col-xs-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }

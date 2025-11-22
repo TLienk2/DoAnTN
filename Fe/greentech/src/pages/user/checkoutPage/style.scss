@@ -1,0 +1,145 @@
+@use "sass:map";
+@import "../../../style/pages/all";
+
+.payment_page {
+  padding: 10px 0;
+  font-family: "Inter", sans-serif;
+
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: map.get($theme-colors, "main");
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  /* Địa chỉ */
+  .address_box {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    .address {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      .no_address {
+        color: #777;
+        margin-bottom: 10px;
+      }
+
+      .change_address_btn {
+        min-width: 150px;
+        height: 50px;
+      }
+    }
+  }
+
+  /* Bảng sản phẩm */
+  .product_table {
+    overflow-x: auto;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      overflow: hidden;
+      margin-top: 10px;
+      thead {
+        background: #ffffff;
+        border-bottom: 1px solid #eee;
+        th {
+          padding: 15px;
+          font-weight: 600;
+          font-size: 16px;
+          text-align: center;
+          color: #333;
+        }
+        th:first-child {
+          text-align: left;
+          margin-left: 20px;
+        }
+      }
+      tbody {
+        td {
+          padding: 15px;
+          text-align: center;
+          vertical-align: middle;
+          border-bottom: 1px solid #eee;
+          font-size: 15px;
+          align-items: center;
+        }
+
+        tr:last-child td {
+          border-bottom: none;
+        }
+
+        .product-info {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          img {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            object-fit: cover;
+          }
+
+          h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: map.get($theme-colors, "main");
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  /* Thanh toán */
+  .payment_summary {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      margin-left: 5px;
+
+      &.total {
+        font-weight: bold;
+        color: map.get($theme-colors, "bold-text");
+        span {
+          color: map.get($theme-colors, "main");
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  .order-btn {
+    display: flex;
+    font-size: 16px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+}
